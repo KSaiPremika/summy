@@ -167,10 +167,14 @@ $(document).ready(function () {
 
     /********************** Toggle Map Content **********************/
     $('#btn-show-map').click(function () {
+          
+         //mapTest();
+
         $('#map-content').toggleClass('toggle-map-content');
         $('#btn-show-content').toggleClass('toggle-map-content');
     });
     $('#btn-show-content').click(function () {
+        mapTest();
         $('#map-content').toggleClass('toggle-map-content');
         $('#btn-show-content').toggleClass('toggle-map-content');
     });
@@ -179,7 +183,6 @@ $(document).ready(function () {
     var myCalendar = createCalendar({
         options: {
             class: '',
-            // You can pass an ID. If you don't, one will be generated for you
             id: ''
         },
         data: {
@@ -234,6 +237,19 @@ $(document).ready(function () {
 });
 
 /********************** Extras **********************/
+//map test
+
+function mapTest(){
+    var map = document.getElementById('map-canvas').setView([13.0863276, 77.5536848], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.marker([13.0863276, 77.5536848]).addTo(map)
+    .bindPopup('Yes, Iam available here.')
+    .openPopup();
+}
 
 // Google map
 function initMap() {
